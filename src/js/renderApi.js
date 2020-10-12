@@ -49,7 +49,7 @@ function loadMore() {
     })
     setTimeout(() => {
         window.scrollTo({
-            top: document.documentElement.offsetHeight - 1500,
+            top: document.documentElement.offsetHeight - 2020,
             behavior: "smooth"
         })
     }, 500);
