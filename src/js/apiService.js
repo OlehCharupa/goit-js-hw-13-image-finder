@@ -1,6 +1,7 @@
 import refs from "./refs.js"
 
-const apiKey = "18623369-889f6d1cb3a21a0bcc2be87ce";
+
+const apiKey = `18623369-889f6d1cb3a21a0bcc2be87ce`;
 const baseUrl = `https://pixabay.com/api/`
 
 export default {
@@ -9,14 +10,14 @@ export default {
     perPage: 12,
 
     async fetchImage() {
-        let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=${this.perPage}&key=${apiKey}`;
+        let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this._query}&page=${this.page}&per_page=${this.perPage}&key=${apiKey}`;
         try {
             const res = await fetch(url);
             const getResponse = await res.json();
             return getResponse
         } catch (error) {
             throw error
-        }
+        };
     },
     setPage() {
         return this.page++;
@@ -28,11 +29,9 @@ export default {
         return this._query;
     },
     set query(newQuery) {
-        this._query = newQuery;
+        return this._query = newQuery;
     },
 }
-
-
 
 
 function displayError(error) {

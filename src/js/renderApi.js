@@ -3,11 +3,15 @@ import refs from "./refs.js";
 import template from "../templates/template.hbs";
 import debounce from "lodash.debounce";
 import * as basicLightbox from 'basiclightbox';
-import "basiclightbox/dist/basicLightbox.min.css"
+import "basiclightbox/dist/basicLightbox.min.css";
+import "@babel/polyfill"
+
 
 const loadMoreButton = document.createElement("button")
 loadMoreButton.textContent = "Load More ..."
 loadMoreButton.classList.add("loadmore-button")
+
+loadMoreButton.addEventListener("click", loadMore)
 
 refs.galleryList.addEventListener("click", (e) => {
     if (e.target.nodeName === "IMG") {
@@ -17,7 +21,6 @@ refs.galleryList.addEventListener("click", (e) => {
         </div>`);
         instance.show()
     }
-    // const imgModal = document.querySelector(".lightBoxImage")
 })
 
 refs.form.addEventListener("input", debounce(e => {
@@ -30,7 +33,6 @@ refs.form.addEventListener("input", debounce(e => {
 }, 1000),
 )
 
-loadMoreButton.addEventListener("click", loadMore)
 
 function rengeApi() {
     apiService.fetchImage().then(({ hits }) => rengeImage(hits))

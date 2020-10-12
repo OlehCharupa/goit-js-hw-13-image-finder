@@ -47,7 +47,9 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.11.5",
     "basiclightbox": "^5.0.3",
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "^4.0.8",
+    "pnotify": "^5.1.2"
   }
 }
